@@ -184,7 +184,7 @@ class _MyAppStateState extends State<MyAppState> with AfterLayoutMixin {
                             index: i,
                           ),
                           DashItem(
-                            title: 'Rocovered',
+                            title: 'Recovered',
                             value: provider?.countryList[i].totalRecovered,
                             isMini: true,
                             index: i,
@@ -326,18 +326,22 @@ class DashItem extends StatelessWidget {
             fontWeight: FontWeight.w600,
           ),
         ), */
-        Text(
-          "${NumberFormat("#,###").format(value ?? 0)}",
-          style: GoogleFonts.montserrat(
-            fontSize: isMini ? 12 : 19,
-            color: index != null && index % 2 == 0 ? white : textColor,
-            fontWeight: FontWeight.w600,
+        Container(
+          width: isMini ? 30 : null,
+          child: Text(
+            "${NumberFormat("#,###").format(value ?? 0)}",
+            overflow: TextOverflow.ellipsis,
+            style: GoogleFonts.montserrat(
+              fontSize: isMini ? 12 : 15,
+              color: index != null && index % 2 == 0 ? white : textColor,
+              fontWeight: FontWeight.w600,
+            ),
           ),
         ),
         Text(
           title ?? "",
           style: GoogleFonts.montserrat(
-            fontSize: isMini ? 8 : 9,
+            fontSize: isMini ? 8 : 7.5,
             color: index != null && index % 2 == 0 ? white : grey,
             fontWeight: isMini ? FontWeight.w300 : FontWeight.w400,
           ),
